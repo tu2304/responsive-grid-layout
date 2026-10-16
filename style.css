@@ -1,0 +1,120 @@
+/* Thiết lập chung */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* --- BỐ CỤC CHO DESKTOP (Mặc định) --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: 250px 1fr 250px;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+        "header header header"
+        "nav nav nav"
+        "main main sidebar"
+        "footer footer footer";
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Định nghĩa các khu vực */
+.header {
+    grid-area: header;
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.nav {
+    grid-area: nav;
+    background: #34495e;
+    padding: 10px;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+.main {
+    grid-area: main;
+    background: #ffffff;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background: #ecf0f1;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding-top: 10px;
+}
+
+.sidebar li {
+    margin-bottom: 8px;
+}
+
+.sidebar a {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+.footer {
+    grid-area: footer;
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* --- BỐ CỤC RESPONSIVE CHO MOBILE (Màn hình từ 768px trở xuống) --- */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "sidebar"
+            "footer";
+    }
+
+    .nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
